@@ -1,26 +1,25 @@
+FrontCam
 
-QR offline Decoder for Palm WebOS
+This App shows the live picture of the front camera of a Pre 3.
 
-written by Stefan Bühler <source@stbuehler.de>, available
-under http://www.apache.org/licenses/LICENSE-2.0
-
-Uses http://code.google.com/p/zxing/ (the c++ part)
-for decoding (http://www.apache.org/licenses/LICENSE-2.0)
-
-Building:
-  copy Makefile.custom.example to Makefile.custom
-  and adjust it to your setup
-
-  then just type make (or make package install)
-  needs GNU make!
+Tapping the live picture will take a picture and store it under 
+  /.de.u32.frontcam/live.jpg 
+in the USB filesystem of your pre. 
 
 
-emulator works too with TARGET=emulator (jail on emulator has a small bug, you need to setup a /dev/fb -> fb0 link manually).
-Also g++ 4.6 didn't work well with exceptions, using CXX=g++-4.4 fixed the issues.
 
-You can build a test command line interface for your host:
-  make TARGET=host testcli
-  ./build-host/qdecode-test some-image.jpg
+Maybe this app works also on the touchpad, but in the emulator it did not.
 
-The zxing library checkout still has the svn entries, so you should
-be able to update it if you want with "svn up" in src/zxing/
+There is no need to run this app on Pre, Pre+, Pre 2, Pixi or Pixi+, they do not have a front cam.
+
+
+
+
+
+FrontCam based on an app written by Stefan Bühler <source@stbuehler.de>
+
+Danke, Stefan. 
+
+
+
+See the file LICENCE for - surprise! - licence information 

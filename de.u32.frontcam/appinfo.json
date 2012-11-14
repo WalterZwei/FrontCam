@@ -1,0 +1,16 @@
+{
+	"id": "de.u32.frontcam",
+	"version": "0.0.8",
+	"type": "web",
+	"main": "index.html",
+	"uiRevision": 2,
+	"title": "Front camera",
+	"icon": "icon-64.png",
+	"smallicon": "icon-32.png",
+	"Section": "Productivity & Utilities",
+	"vendor": "W. Koch",
+	"support": {
+		"url": "http://www.u32.de",
+		"email": { "address": "palm-dev@u32.de", "subject": "[FrontCam support]" }
+	}
+}
