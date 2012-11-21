@@ -1,0 +1,9 @@
+0.0.8
+  published
+
+0.0.9
+  * Command menu with, ehm, kind of help & support
+  * photos are saved in the usual place, so the webos photo viewing app can be used for viewing
+  * photo are now named like the photo renaming patches, eg. pre_2012-11-21-200357-f.jpg
+    (and so you can make as much photos as you like)
+  * webos top info line (menu, date, RF signal strength etc) is now visible 

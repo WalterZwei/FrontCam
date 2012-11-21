@@ -1,16 +1,16 @@
 {
 	"id": "de.u32.frontcam",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"type": "web",
 	"main": "index.html",
 	"uiRevision": 2,
 	"title": "Front camera",
 	"icon": "icon-64.png",
 	"smallicon": "icon-32.png",
-	"Section": "Productivity & Utilities",
-	"vendor": "W. Koch",
+	"Section": "Photography",
+	"vendor": "Walter Koch",
 	"support": {
-		"url": "http://www.u32.de",
+		"url": "http://forums.webosnation.com/hp-pre-3/320062-app-front-camera-pre3.html",
 		"email": { "address": "palm-dev@u32.de", "subject": "[FrontCam support]" }
 	}
 }

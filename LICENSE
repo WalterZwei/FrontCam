@@ -32,6 +32,10 @@ Theis app is a stripped down version of "Palm Pre QR offline Decoder"
    limitations under the License.
 
 
+This app uses the filename generation code published by Jason Robitaille in his
+improved-*-photo-naming-patches (see http://forums.webosnation.com/webos-patches/232987-3-patches-improved-camera-photo-filenames.html#post2260440)
+
+
 The back-pill images are from preware (http://git.webos-internals.org/applications/preware), which is licensed under GNU GPL 2, see
 http://git.webos-internals.org/applications/preware/tree/LICENSE
 

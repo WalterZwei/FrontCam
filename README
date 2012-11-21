@@ -1,25 +1,20 @@
 FrontCam
 
-This App shows the live picture of the front camera of a Pre 3.
+This app shows the live picture of the front camera of a Pre 3 and HP TouchPad
 
-Tapping the live picture will take a picture and store it under 
-  /.de.u32.frontcam/live.jpg 
-in the USB filesystem of your pre. 
+Tapping the live picture will take a picture and save it in the usual place, 
+so the webos photo viewing app can be used for viewing. 
 
-
-
-Maybe this app works also on the touchpad, but in the emulator it did not.
+Photos are now named like the photo renaming patches, eg. pre_2012-11-21-200357-f.jpg
 
 There is no need to run this app on Pre, Pre+, Pre 2, Pixi or Pixi+, they do not have a front cam.
 
+FrontCam is based on the app  "Palm Pre QR offline Decoder" 
+written by Stefan Bühler <source@stbuehler.de>, see https://github.com/stbuehler/pre-qrdecoder/
+(Danke, Stefan!)
 
 
+Source: https://github.com/WalterZwei/FrontCam
 
-
-FrontCam based on an app written by Stefan Bühler <source@stbuehler.de>
-
-Danke, Stefan. 
-
-
-
+Licence: Apache License, Version 2.0
 See the file LICENCE for - surprise! - licence information 

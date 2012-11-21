@@ -2,14 +2,13 @@ var LiveAssistant = Class.create({
 	initialize: function(mainscene) {
 		this.mainscene = mainscene;
 		this.pictureTaken = this.pictureTaken.bind(this);
-        
 		this.takePicture = this.takePicture.bind(this);
 
 	},
 
 	setup: function() {
 		this.controller.setupWidget(Mojo.Menu.appMenu, StageAssistant.appMenuAttributes, StageAssistant.appMenuModel);
-		this.controller.enableFullScreenMode(true);
+	  //this.controller.enableFullScreenMode(true);
 
 		this.video = document.createElement("video");
 
@@ -17,7 +16,7 @@ var LiveAssistant = Class.create({
 
 		this.video.setAttribute("width", deviceinfo.screenWidth);
 		this.video.setAttribute("height", deviceinfo.screenHeight);
-		this.video.setAttribute("showControls", false);
+		this.video.setAttribute("showControls", true);
 
 		$('live-content').appendChild(this.video);
 
@@ -76,12 +75,24 @@ var LiveAssistant = Class.create({
 	},
 
 	pictureTaken: function(event) {
-		Mojo.Log.info("picture taken %s", JSON.stringify(event));
+		Mojo.Log.info("picture taken");
+		//Mojo.Log.info("picture taken %s", JSON.stringify(event));
 	},
 
 	takePicture: function(event) {
-		this.mediaCaptureObj.startImageCapture(LiveAssistant.imgFilename,
-			{ quality: 100, flash: 0, reviewDuration: 0, exifData: { } });
+        var date = new Date();
+        var YYYY = date.getFullYear();
+        var MM = (1+date.getMonth()); if (MM<10)   { MM = "0"+MM; }
+        var DD = (0+date.getDate());  if (DD<10)   { DD = "0"+DD; }
+        var hh = date.getHours();     if (hh < 10) { hh = "0"+hh; }
+        var mm = date.getMinutes();   if (mm < 10) { mm = "0"+mm; }
+        var ss = date.getSeconds();   if (ss < 10) { ss = "0"+ss; }
+        var imgFilename = "/media/internal/DCIM/100PALM/pre_" 
+                          + YYYY + "-" +  MM + "-" + DD + "-" + hh + mm + ss
+                          + "-f.jpg";
+		Mojo.Log.info("picture taking ... %s", imgFilename);
+		this.mediaCaptureObj.startImageCapture(imgFilename,
+			{ quality: 100, flash: 0, reviewDuration: 5, exifData: { } });
 	},
 
 	activate: function(event) {
@@ -113,5 +124,5 @@ var LiveAssistant = Class.create({
 	},
 });
 
-LiveAssistant.imgFilename = "/media/internal/.de.u32.frontcam/live.jpg";
+
 
