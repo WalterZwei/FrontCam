@@ -1,6 +1,6 @@
 {
 	"id": "de.u32.frontcam",
-	"version": "0.0.9",
+	"version": "0.0.10",
 	"type": "web",
 	"main": "index.html",
 	"uiRevision": 2,

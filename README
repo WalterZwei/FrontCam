@@ -1,15 +1,22 @@
 FrontCam
 
 This app shows the live picture of the front camera of a Pre 3 and HP TouchPad
+There is no need to run this app on Pre, Pre+, Pre 2, Pixi or Pixi+, they do 
+not have a front cam.
 
 Tapping the live picture will take a picture and save it in the usual place, 
 so the webos photo viewing app can be used for viewing. 
 
-Photos are now named like the photo renaming patches, eg. pre_2012-11-21-200357-f.jpg
+the pictures file are named like the photo renaming patches, eg. 
+   pre_2012-11-21-200357-f.jpg
 
-There is no need to run this app on Pre, Pre+, Pre 2, Pixi or Pixi+, they do not have a front cam.
 
-FrontCam is based on the app  "Palm Pre QR offline Decoder" 
+Remarks:
+* Any music player app stops playing when Frontcam is running. This seem to be
+  a limitation of webOS, because the webos camera app shows the same behaviour 
+  
+
+FrontCam is based on the app "Palm Pre QR offline Decoder" 
 written by Stefan Bühler <source@stbuehler.de>, see https://github.com/stbuehler/pre-qrdecoder/
 (Danke, Stefan!)
 

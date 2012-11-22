@@ -8,14 +8,40 @@ var LiveAssistant = Class.create({
 
 	setup: function() {
 		this.controller.setupWidget(Mojo.Menu.appMenu, StageAssistant.appMenuAttributes, StageAssistant.appMenuModel);
-	  //this.controller.enableFullScreenMode(true);
 
-		this.video = document.createElement("video");
+		this.cmdMenuModel = {items: [{}]};
+		this.cmdMenuModel.items[0]= {label: "switch", command: "switch-cmd"};
+		this.controller.setupWidget(Mojo.Menu.commandMenu, this.handleCommand, this.cmdMenuModel);
+		//this.controller.modelChanged(this.cmdMenuModel);
+        this.startCamera("Front Camera");
+    },
+
+    handleCommand: function(event) {
+        if (event.type == Mojo.Event.command) {
+            switch(event.command) {
+                case "switch-cmd":
+                    if( this.currentCam == 'Front Camera' ) {
+                       this.startCamera("Camera/Camcorder");
+                    } else { 
+                       this.startCamera("Front Camera");
+                    }
+                    break;
+            }
+        } else if (event.type === Mojo.Event.back) {
+            this.poppingScene = true;
+        }
+
+    },
+
+
+    startCamera: function(sName) {
+	  //this.controller.enableFullScreenMode(true);
 
 		var deviceinfo = JSON.parse(PalmSystem.deviceInfo);
 
+		this.video = document.createElement("video");
 		this.video.setAttribute("width", deviceinfo.screenWidth);
-		this.video.setAttribute("height", deviceinfo.screenHeight);
+		this.video.setAttribute("height", deviceinfo.screenHeight );
 		this.video.setAttribute("showControls", true);
 
 		$('live-content').appendChild(this.video);
@@ -29,14 +55,14 @@ var LiveAssistant = Class.create({
 //  {"inputtype":[2],"deviceUri":"video:1","description":"Front Camera"}]
 
 		var sources = this.getVideoSources(this.mediaCaptureObj);
-		this.captureDevice = this.selectCamera(sources);
+		this.captureDevice = this.selectCamera(sources,sName);
 
 		this.mediaCaptureObj.load(this.captureDevice.deviceUri, {imageCaptureFormat: this.captureDevice.format});
 		this.mediaCaptureObj.addEventListener("imagecapturecomplete", this.pictureTaken, false);
 
 		/* setup widgets here */
 		this.controller.listen('live-content', Mojo.Event.tap, this.takePicture);
-
+        this.currentCam = sName;
 		this.live_running = false;
 
 		/* add event handlers to listen to events from widgets */
@@ -63,11 +89,11 @@ var LiveAssistant = Class.create({
 		return list;
 	},
 
-	selectCamera: function(sources) {
-		/* prefer the front camera */
+	selectCamera: function(sources,sName) {
+		/* prefer the <sName> camera */
 		var sel = 0, i;
 		for (i = 0; i < sources.length; i++) {
-			if (sources[i].description == "Front Camera") {
+			if (sources[i].description == sName) {
 				sel = i;
 			}
 		}
